@@ -1,14 +1,11 @@
-h1 Listing appointments
+h3.text-center VIEW APPOINTMENT
 
 table.table
   thead
     tr
-      th Patient
-      th Doctor
+      th Patient name
+      th Doctor name
       th Diseases
-      th
-      th
-      th
 
   tbody
     - Appointment.all.each do |appointment|
@@ -16,9 +13,6 @@ table.table
         td = appointment.patient.try(:name)
         td = appointment.doctor.try(:name)
         td = appointment.diseases
-        td = link_to 'Show', appointment
-        td = link_to 'Edit', edit_appointment_path(appointment)
-        td = link_to 'Destroy', appointment, data: { confirm: 'Are you sure?' }, method: :delete
 
 br
 
