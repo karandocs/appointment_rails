@@ -1,4 +1,4 @@
-= simple_form_for(@appointment) do |f|
+= simple_form_for(Appointment.new, remote: true) do |f|
   = f.error_notification
 
   .form-inputs

@@ -1,6 +1,6 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   # GET /appointments
   # GET /appointments.json
   def index
@@ -28,8 +28,9 @@ class AppointmentsController < ApplicationController
 
     respond_to do |format|
       if @appointment.save
-        format.html { redirect_to @appointment, notice: 'Appointment was successfully created.' }
-        format.json { render :show, status: :created, location: @appointment }
+        format.html {render partial: 'appointments/show', locals: {appointment: @appointment} }
+        format.json {render partial: 'appointments/show', locals: {appointment: @appointment} }
+        format.js { }
       else
         format.html { render :new }
         format.json { render json: @appointment.errors, status: :unprocessable_entity }

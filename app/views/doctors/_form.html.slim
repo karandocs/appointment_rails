@@ -1,9 +1,9 @@
-= simple_form_for(@doctor) do |f|
+= simple_form_for(Doctor.new, remote: true) do |f|
   = f.error_notification
 
   .form-inputs
     = f.input :name
     = f.input :phone_number
-
+    = f.input :specialization
   .form-actions
     = f.button :submit

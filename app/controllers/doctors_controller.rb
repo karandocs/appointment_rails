@@ -1,7 +1,7 @@
 class DoctorsController < ApplicationController
   before_action :set_doctor, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
-  
+  # before_action :authenticate_user!
+
   # GET /doctors
   # GET /doctors.json
   def index
@@ -31,6 +31,7 @@ class DoctorsController < ApplicationController
       if @doctor.save
         format.html { redirect_to @doctor, notice: 'Doctor was successfully created.' }
         format.json { render :show, status: :created, location: @doctor }
+        format.js { }
       else
         format.html { render :new }
         format.json { render json: @doctor.errors, status: :unprocessable_entity }
@@ -70,6 +71,6 @@ class DoctorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def doctor_params
-      params.require(:doctor).permit(:name, :phone_number)
+      params.require(:doctor).permit(:name, :phone_number, :specialization)
     end
 end

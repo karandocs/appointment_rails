@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
-
+  respond_to :html, :js
   # GET /patients
   # GET /patients.json
   def index
@@ -29,6 +29,7 @@ class PatientsController < ApplicationController
     respond_to do |format|
       if @patient.save
         format.html { redirect_to @patient, notice: 'Patient was successfully created.' }
+        format.js {}
         format.json { render :show, status: :created, location: @patient }
       else
         format.html { render :new }
