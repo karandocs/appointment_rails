@@ -81,7 +81,11 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  adapter:  postgresql
+  host:     localhost
+  encoding: unicode
   database: appointment_rails_development
-  username: postgres
-  password: postgres
+  pool:     5
+  username: nadim
+  password:
+  template: template0
