@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @doctor.name
+p
+  strong Phone number:
+  = @doctor.phone_number
+
+= link_to 'Edit', edit_doctor_path(@doctor)
+'  |
+= link_to 'Back', doctors_path

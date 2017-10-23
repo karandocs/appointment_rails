@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Patient:
+  = @appointment.patient
+p
+  strong Doctor:
+  = @appointment.doctor
+p
+  strong Diseases:
+  = @appointment.diseases
+
+= link_to 'Edit', edit_appointment_path(@appointment)
+'  |
+= link_to 'Back', appointments_path

@@ -1,0 +1,23 @@
+h1 Listing doctors
+
+table.table
+  thead
+    tr
+      th Name
+      th Phone number
+      th
+      th
+      th
+
+  tbody
+    - @doctors.each do |doctor|
+      tr
+        td = doctor.name
+        td = doctor.phone_number
+        td = link_to 'Show', doctor
+        td = link_to 'Edit', edit_doctor_path(doctor)
+        td = link_to 'Destroy', doctor, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Doctor', new_doctor_path

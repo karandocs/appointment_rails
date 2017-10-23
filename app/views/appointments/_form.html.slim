@@ -1,0 +1,10 @@
+= simple_form_for(@appointment) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :patient
+    = f.association :doctor
+    = f.input :diseases
+
+  .form-actions
+    = f.button :submit
